@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-  	<module>level0_module0</module>
+  	<module>level0_module0_demo</module>
   	<module>level1_module1_demo</module>
   </modules>
 </project>
