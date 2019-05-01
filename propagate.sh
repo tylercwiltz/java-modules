@@ -15,6 +15,7 @@
 #-    copyright       Copyright (c) The League of Amazing Programmers
 #-    script_id       100001
 #================================================================
+#TODO change to relative path.
 MODULES="/home/ec2-user/java-module-updater-DO_NOT_MOVE/java-modules"
 destination="/home/ec2-user/java-module-updater-DO_NOT_MOVE/destination"
 cd ${MODULES}
