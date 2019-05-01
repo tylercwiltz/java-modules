@@ -21,7 +21,7 @@ cd ${MODULES}
 git pull https://github.com/League-central/java-modules.git
 rsync -av --exclude='.git/' "${MODULES}" "${destination}" 
 
-cd "${destination}"
+cd "${destination}/java-modules"
 #Save current directory so we can restore it later
 cur=$PWD
 #Save command line arguments so functions can access it
@@ -57,10 +57,11 @@ function dir_command {
     git push
     cd ..
 }
-
+echo "moving through directories"
 #This loop will go to each immediate child and execute dir_command
-find . -maxdepth 1 -type d \( ! -name . \) -name 'level*' | while read dir; do
+find . -maxdepth 1 -type d \( ! -name . \) -name 'Level*' | while read dir; do
    dir_command "$dir/"
+   
 done
 
 #Restore the folder
