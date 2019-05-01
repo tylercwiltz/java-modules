@@ -15,13 +15,13 @@
 #-    copyright       Copyright (c) The League of Amazing Programmers
 #-    script_id       100001
 #================================================================
-MODULES="/Users/Keith/Desktop/league-modules"
-destination="/Users/Keith/Desktop/unifiedCurriculum/"
+MODULES="/Users/Keith/Desktop/newFolder/java-modules"
+destination="/Users/Keith/Desktop/newFolder/destFolder"
 cd ${MODULES}
-git pull https://github.com/League-central/league-modules.git
+git pull https://github.com/League-central/java-modules.git
 rsync -av --exclude='.git/' "${MODULES}" "${destination}" 
 
-cd "${destination}/league-modules"
+cd "${destination}/java-modules"
 #Save current directory so we can restore it later
 cur=$PWD
 #Save command line arguments so functions can access it
@@ -42,15 +42,19 @@ cecho(){
 function dir_command {
     #This example command implements doing git status for folder
     cd $1
-    if [ ${args[0]} == 'gitignore' ]
+    if [ "${args[0]}" == "gitignore" ]
     then
     cecho "GREEN" "creating gitignore in $1"
     curl https://gitignore.io/api/java -o .gitignore
     fi
+    pwd
     echo $1
-    #git add .
-    #git commit -m "update from league central"
-    #git push
+    git status
+    git add .
+    cecho "GREEN" "commiting changes"
+    git commit -m "update from league central"
+    cecho "GREEN" "pushing changes"
+    git push
     cd ..
 }
 
