@@ -15,8 +15,8 @@
 #-    copyright       Copyright (c) The League of Amazing Programmers
 #-    script_id       100001
 #================================================================
-MODULES="/Users/Keith/Desktop/newFolder/java-modules"
-destination="/Users/Keith/Desktop/newFolder/destFolder"
+MODULES="/home/ec2-user/java-module-updater-DO_NOT_MOVE/java-modules"
+destination="/home/ec2-user/java-module-updater-DO_NOT_MOVE/destination"
 cd ${MODULES}
 git pull https://github.com/League-central/java-modules.git
 rsync -av --exclude='.git/' "${MODULES}" "${destination}" 
