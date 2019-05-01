@@ -8,4 +8,4 @@ At the end of this module, students will be able to:
 4. Code a pop-up dialog to ask the user for their favorite color
 5. Join Strings using +
 
-copyright 2019 (c) The League of Amazing Programmers
+(c) 2019 The League of Amazing Programmers All Rights Reserved
