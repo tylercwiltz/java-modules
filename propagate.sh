@@ -20,7 +20,7 @@ MODULES="/home/ec2-user/java-module-updater-DO_NOT_MOVE/java-modules"
 destination="/home/ec2-user/java-module-updater-DO_NOT_MOVE/destination"
 cd ${MODULES}
 git pull https://github.com/League-central/java-modules.git
-rsync -av --exclude='.git/' "${MODULES}" "${destination}" 
+rsync -av --exclude='.git/' --delete "${MODULES}" "${destination}" 
 
 cd "${destination}/java-modules"
 #Save current directory so we can restore it later
