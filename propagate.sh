@@ -18,11 +18,31 @@
 #TODO change to relative path.
 #MODULES="/home/ec2-user/java-module-updater-DO_NOT_MOVE/java-modules"
 destination="../destination"
+
+while read in; do 
+    if ! git clone "$in" ; then
+        echo >&2 this failed
+    else
+        #copy repo over
+        repoName=$(basename "$in" ".${in##*.}")
+        echo ${repoName}
+        cp -rf "${repoName}" "${destination}/java-modules/"
+        rm -rf ./*/.git
+        echo "do stuff"
+        git add ${repoName}
+        git commit -m "add ${repoName}"
+        git push
+    fi;
+done < RepoList.txt
+
+
+
+
 cd ${MODULES}
 git pull https://github.com/League-central/java-modules.git
 rsync -av --exclude='.git/' --delete "${MODULES}" "${destination}" 
 
-cd "../destination/java-modules"
+cd "${destination}/java-modules"
 #Save current directory so we can restore it later
 cur=$PWD
 #Save command line arguments so functions can access it
