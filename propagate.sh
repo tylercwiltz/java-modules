@@ -20,6 +20,7 @@ exec 1>log.out 2>&1
 #-    script_id       100001
 #================================================================
 #TODO change to relative path.
+date
 MODULES="/home/ec2-user/java-module-updater-DO_NOT_MOVE/java-modules"
 destination="/home/ec2-user/java-module-updater-DO_NOT_MOVE/destination"
 cd ${MODULES}
