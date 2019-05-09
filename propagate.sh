@@ -16,7 +16,7 @@
 #-    script_id       100001
 #================================================================
 #TODO change to relative path.
-MODULES="/home/ec2-user/java-module-updater-DO_NOT_MOVE/java-modules"
+MODULES=$PWD
 destination="../destination"
 
 while read in; do 
