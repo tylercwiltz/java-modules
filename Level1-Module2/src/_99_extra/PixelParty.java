@@ -1,4 +1,4 @@
-package extra;
+package _99_extra;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
