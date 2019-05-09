@@ -1,4 +1,8 @@
 #!/bin/sh
+#Log
+exec 3>&1 4>&2
+trap 'exec 2>&4 1>&3' 0 1 2 3
+exec 1>log.out 2>&1
 #================================================================
 # HEADER
 #================================================================
@@ -23,7 +27,7 @@ while read in; do
     if ! git clone "$in" ; then
         echo >&2 this failed
     else
-        #copy repo over
+        echo "copy repo over"
         repoName=$(basename "$in" ".${in##*.}")
         echo ${repoName}
         cp -rf "${repoName}" "${destination}/java-modules/"
@@ -31,6 +35,7 @@ while read in; do
         echo "do stuff"
         git add ${repoName}
         git commit -m "add ${repoName}"
+        echo "push repo"
         git push
     fi;
 done < RepoList.txt
@@ -38,8 +43,9 @@ done < RepoList.txt
 
 
 
-
+echo "pulling changes"
 git pull https://github.com/League-central/java-modules.git
+echo "syncing folders"
 rsync -av --exclude='.git/' --delete "${MODULES}" "${destination}" 
 
 cd "${destination}/java-modules"
