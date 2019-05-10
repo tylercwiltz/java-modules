@@ -89,7 +89,7 @@ function dir_command {
 }
 echo "moving through directories"
 #This loop will go to each immediate child and execute dir_command
-find . -maxdepth 1 -type d \( ! -name . \) -name '*' | while read dir; do
+find . -maxdepth 1 -type d \( ! -name . \) -name 'Level[0-9]*' | while read dir; do
    dir_command "$dir/"
    
 done
